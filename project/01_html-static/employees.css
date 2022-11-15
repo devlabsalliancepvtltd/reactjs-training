@@ -1,0 +1,8 @@
+/*Beginning of Employees styles*/
+.employees {
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+}
+/*End of Employees styles*/
