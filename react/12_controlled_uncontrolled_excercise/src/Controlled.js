@@ -6,8 +6,8 @@ const Controlled = () => {
     select: "2",
     radio: "F",
     check: {
-      hyderbad: false,
-      bangalore: true,
+      hyderabad: false,
+      bangalore: false,
     },
     textarea: "some default text",
   });
@@ -37,9 +37,11 @@ const Controlled = () => {
   };
 
   const checkChanged = (e, city) => {
-    const value = e.target.value;
+    const checked = e.target.checked;
 
-    // TODO:
+    setFormData((prevState) => {
+      return { ...prevState, check: { ...prevState.check, [city]: checked } };
+    });
   };
 
   const radioChanged = (value) => {
@@ -88,25 +90,25 @@ const Controlled = () => {
         <br /> <br />
       </div>
 
-      {/*<div>
-         <input
+      <div>
+        <input
           type="checkbox"
-          checked={formData.check.includes("Hyderabad") ? true : false}
+          checked={formData.check.hyderabad}
           onChange={(e) => {
-            checkChanged(e, "Hyderabad");
+            checkChanged(e, "hyderabad");
           }}
         />
         Hyderabad&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="checkbox"
-          checked={formData.check.includes("Bangalore") ? true : false}
+          checked={formData.check.bangalore}
           onChange={(e) => {
-            checkChanged(e, "Bangalore");
+            checkChanged(e, "bangalore");
           }}
         />
         Bangalore
         <br /> <br />
-      </div> */}
+      </div>
 
       <div>
         <textarea
