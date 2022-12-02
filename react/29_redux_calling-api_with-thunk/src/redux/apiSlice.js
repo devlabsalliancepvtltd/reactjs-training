@@ -9,7 +9,7 @@ export const getAPIData = createAsyncThunk(
     try {
       const response = await axios.get(URL);
 
-      return response;
+      return response?.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -34,7 +34,7 @@ const apiSlice = createSlice({
         state.error = "";
       })
       .addCase(getAPIData.fulfilled, (state, action) => {
-        state.data = action?.payload?.data;
+        state.data = action?.payload;
         state.fetching = false;
       })
       .addCase(getAPIData.rejected, (state, action) => {
