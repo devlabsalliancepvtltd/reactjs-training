@@ -1,0 +1,77 @@
+@use "../css/variables.scss" as *;
+@use "../css/mixins.scss" as *;
+
+/*Beginning of Layout styles*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: maroon;
+
+  a {
+    text-decoration: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    height: 50px;
+
+    background-color: $grey-color;
+
+    .logo-container {
+      display: grid;
+      align-items: center;
+
+      margin-left: 15px;
+    }
+
+    .menu-container {
+      display: grid;
+      align-items: center;
+      justify-items: end;
+
+      .menu {
+        list-style-type: none;
+
+        .menu-item {
+          display: inline-block;
+          margin-right: 15px;
+
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  main {
+    display: grid;
+    justify-items: center;
+
+    position: absolute;
+    top: 50px;
+    bottom: 30px;
+    width: 100%;
+
+    color: darkslategrey;
+  }
+
+  footer {
+    // display: grid;
+    // place-items: center;
+
+    @include display-grid-place-items-center;
+
+    height: 30px;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    background-color: $grey-color;
+
+    font-size: 12px;
+  }
+}
+
+/*End of Layout styles*/

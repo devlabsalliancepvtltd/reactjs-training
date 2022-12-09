@@ -1,0 +1,31 @@
+/*Beginning of Form styles*/
+.form-field {
+  margin-bottom: 15px;
+
+  font-size: 14px;
+
+  .ff-label {
+    margin-bottom: 2px;
+  }
+}
+
+.app-button {
+  padding: 6px 10px;
+
+  margin-right: 10px;
+  background-color: teal;
+  color: white;
+
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+
+.app-disabled-button {
+  @extend .app-button;
+
+  background-color: gray;
+}
+
+/*End of Form styles*/
