@@ -1,0 +1,61 @@
+
+==================================================
+
+==================================================
+The standard react-helmet library is now considered deprecated. Instead, you should use react-helmet-async.
+
+This is because react-helmet led to a few bugs that resulted in memory leaks and poor data integrity. Suffice it to say, when React developers mention Helmet, they're almost always referring to react-helmet-async.
+==================================================
+npm install react-helmet-async
+==================================================
+The two components we'll be importing from react-helmet-async are called Helmet and HelmetProvider.
+
+- HelmetProvider will wrap the entire app component in order to create context and prevent memory leaks. Therefore, this component will only need to be imported in the root App component.
+- Helmet will be imported into any page component where you want to implement meta tags. Think of <Helmet> as the <head> tag for the page in question.
+==================================================
+Metadata isn't only about Google search results. We also want social media posts that reference our site to show up as cool preview cards.
+
+When it comes to metadata and meta tags, there's a ton of different variants to remember. Facebook uses og (open graph) tags, Twitter uses its own twitter variant, and so on.
+==================================================
+
+==================================================
+social media preview
+==================================================
+"Social share preview" chrome extension:
+
+https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib
+==================================================
+
+==================================================
+
+==================================================
+
+==================================================
+
+==================================================
+import React from "react";
+import { Helmet } from "react-helmet-async";
+export default function SEO({ title, description, name, type }) {
+  return (
+    <Helmet>
+      {/* Standard metadata tags */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {/* End standard metadata tags */}
+
+      {/* Facebook tags */}
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      {/* End Facebook tags */}
+
+      {/* Twitter tags */}
+      <meta name="twitter:creator" content={name} />
+      <meta name="twitter:card" content={type} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      {/* End Twitter tags */}
+    </Helmet>
+  );
+}
+==================================================
